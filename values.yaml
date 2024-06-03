@@ -1,6 +1,6 @@
 repository:
   url: https://github.com/brahmGAN/inference_results_v3.0.git
-  branch: L4-full
+  branch: T4-full
 
 
 hardware: NVIDIA
