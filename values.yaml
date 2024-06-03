@@ -1,6 +1,6 @@
 repository:
   url: https://github.com/brahmGAN/inference_results_v3.0.git
-  branch: A100-full
+  branch: RTX4090-full
 
 
 hardware: NVIDIA
