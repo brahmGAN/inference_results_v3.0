@@ -227,34 +227,34 @@ main() {
   # Convert benchmarks into an array
   IFS=' ' read -r -a BENCHMARK_MODELS <<<"$BENCHMARKS"
 
-  # Run the nvidia-smi mig -lgip command and store the output in a variable
-  output=$(nvidia-smi mig -lgip)
-
-  # Use awk to extract the last MIG ID from the output
-
-  # Extracting the last GPU name
-  last_gpu_name=$(echo "$output" | grep -oP 'MIG \d+g\.\d+gb(?=\s+\d+)' | tail -1)
-
-  last_gpu_name=$(echo "$last_gpu_name" | grep -oE "[^ ]+$")
-  echo "$last_gpu_name"
-
-  # Check if last_mig_id is empty, indicating no MIG device found
-  if [ -z "$last_gpu_name" ]; then
-    echo "Error: No MIG device found."
-    exit 1
-  fi
-
-  # Run the nvidia-smi mig -cgi command with the last MIG ID
-  result=$(sudo nvidia-smi mig -cgi "$last_gpu_name" -C 2>&1)
-
-  # Check if the command was successful
-  if [[ $result == *"Successfully"* ]]; then
-    echo "Successfully created GPU instance ID $last_gpu_name"
-    # Continue with your script here
-  else
-    echo "Error: Failed to create GPU instance ID $last_gpu_name"
-    exit 1
-  fi
+#  # Run the nvidia-smi mig -lgip command and store the output in a variable
+#  output=$(nvidia-smi mig -lgip)
+#
+#  # Use awk to extract the last MIG ID from the output
+#
+#  # Extracting the last GPU name
+#  last_gpu_name=$(echo "$output" | grep -oP 'MIG \d+g\.\d+gb(?=\s+\d+)' | tail -1)
+#
+#  last_gpu_name=$(echo "$last_gpu_name" | grep -oE "[^ ]+$")
+#  echo "$last_gpu_name"
+#
+#  # Check if last_mig_id is empty, indicating no MIG device found
+#  if [ -z "$last_gpu_name" ]; then
+#    echo "Error: No MIG device found."
+#    exit 1
+#  fi
+#
+#  # Run the nvidia-smi mig -cgi command with the last MIG ID
+#  result=$(sudo nvidia-smi mig -cgi "$last_gpu_name" -C 2>&1)
+#
+#  # Check if the command was successful
+#  if [[ $result == *"Successfully"* ]]; then
+#    echo "Successfully created GPU instance ID $last_gpu_name"
+#    # Continue with your script here
+#  else
+#    echo "Error: Failed to create GPU instance ID $last_gpu_name"
+#    exit 1
+#  fi
 
   systemctl restart docker
   rm -rf code/common/systems/custom_list.py
