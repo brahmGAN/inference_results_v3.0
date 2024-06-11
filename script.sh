@@ -262,11 +262,11 @@ main() {
 
   # Loop over the benchmarks
   for model in "${BENCHMARK_MODELS[@]}"; do
-    make prebuild DOCKER_COMMAND="make download_data BENCHMARKS='$model'"
-    make prebuild DOCKER_COMMAND="make download_model BENCHMARKS='$model'"
-    make prebuild DOCKER_COMMAND="make preprocess_data BENCHMARKS='$model'"
-    make prebuild DOCKER_COMMAND="make clean"
-    make prebuild DOCKER_COMMAND="make build"
+#    make prebuild DOCKER_COMMAND="make download_data BENCHMARKS='$model'"
+#    make prebuild DOCKER_COMMAND="make download_model BENCHMARKS='$model'"
+#    make prebuild DOCKER_COMMAND="make preprocess_data BENCHMARKS='$model'"
+#    make prebuild DOCKER_COMMAND="make clean"
+#    make prebuild DOCKER_COMMAND="make build"
     output=$(make prebuild DOCKER_COMMAND="make run RUN_ARGS='--benchmarks=$model --scenarios=offline'")
     # Check if "Result is : VALID" is in the output
     if echo "$output" | grep -q "Result is : VALID"; then
