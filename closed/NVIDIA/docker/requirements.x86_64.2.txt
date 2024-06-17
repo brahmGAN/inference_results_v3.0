@@ -1,4 +1,4 @@
-apex @ git+https://github.com/nvidia/apex@00c1e56d02f2987e71ee40417ea7e938e1493475
+# apex @ git+https://github.com/nvidia/apex@00c1e56d02f2987e71ee40417ea7e938e1493475
 # nvidia-tensorflow==1.15.5+nv21.4
 uff==0.6.9
 graphsurgeon==0.4.5
