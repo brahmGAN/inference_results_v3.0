@@ -171,7 +171,7 @@ main() {
 
   ensure_python_dependencies
   read_yaml
-  local dir_name="inference"
+  local dir_name="inference_results_v3.0"
   #  clone_repository "$dir_name" "$REPO_URL" "$REPO_BRANCH"
   create_directory_structure
   change_to_hardware_dir "$dir_name" "$HARDWARE"
